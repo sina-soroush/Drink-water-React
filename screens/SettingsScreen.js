@@ -101,9 +101,9 @@ export default function SettingsScreen({ navigation }) {
                     </View>
                   </View>
                   <Ionicons 
-                    name="chevron-forward" 
-                    size={20} 
-                    color={isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,61,91,0.5)'} 
+                    name="chevron-forward"
+                    size={20}
+                    color={isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,61,91,0.5)'}
                   />
                 </BlurView>
               </TouchableOpacity>

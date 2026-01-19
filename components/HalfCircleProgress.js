@@ -60,8 +60,8 @@ export default function HalfCircleProgress({ progress = 0, size = 280, strokeWid
   `;
   
   return (
-    <View style={[styles.container, { width: size, height: size / 2 + strokeWidth + 20 }]}>
-      <Svg width={size} height={size / 2 + strokeWidth + 20} viewBox={`0 0 ${size} ${size / 2 + strokeWidth + 20}`}>
+    <View style={[styles.container, { width: size, height: size / 2 + strokeWidth }]}>
+      <Svg width={size} height={size / 2 + strokeWidth} viewBox={`0 0 ${size} ${size / 2 + strokeWidth}`}>
         <Defs>
           {/* Modern gradient: Blue to Cyan to Green */}
           <LinearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -69,12 +69,6 @@ export default function HalfCircleProgress({ progress = 0, size = 280, strokeWid
             <Stop offset="40%" stopColor="#00C7BE" stopOpacity="1" />
             <Stop offset="75%" stopColor="#30D158" stopOpacity="1" />
             <Stop offset="100%" stopColor="#34C759" stopOpacity="1" />
-          </LinearGradient>
-          
-          {/* Glow gradient for dot */}
-          <LinearGradient id="dotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
-            <Stop offset="100%" stopColor="#00C7BE" stopOpacity="1" />
           </LinearGradient>
         </Defs>
         
@@ -108,21 +102,6 @@ export default function HalfCircleProgress({ progress = 0, size = 280, strokeWid
           strokeDasharray={circumference}
           animatedProps={animatedProps}
           fill="none"
-        />
-        
-        {/* Animated indicator dot with glow */}
-        <AnimatedCircle
-          animatedProps={animatedDotProps}
-          r={strokeWidth / 2 + 4}
-          fill="url(#dotGradient)"
-          opacity={0.6}
-        />
-        <AnimatedCircle
-          animatedProps={animatedDotProps}
-          r={strokeWidth / 2}
-          fill="#FFFFFF"
-          stroke="url(#progressGradient)"
-          strokeWidth={3}
         />
       </Svg>
     </View>
