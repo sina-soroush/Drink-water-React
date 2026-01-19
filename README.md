@@ -1,4 +1,6 @@
 # 💧 Drink Water Tracker
+<img width="64" height="64" alt="icon (1)" src="https://github.com/user-attachments/assets/6219cac8-7a56-4fed-98c5-6ef8e81566df" />
+
 
 A beautiful and intuitive water intake tracking app built with React Native and Expo, featuring stunning Lottie animations, glassmorphism design, and comprehensive health tracking capabilities.
 
