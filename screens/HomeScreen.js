@@ -339,35 +339,37 @@ export default function HomeScreen({ navigation }) {
             </TouchableOpacity>
           </Animated.View>
           
-          {/* Secondary Action Buttons - Glass Grid */}
-          <View style={styles.secondaryButtons}>
-            
-            {/* Remove Button */}
+          {/* Remove Button - Horizontal like Undo */}
+          <View style={styles.removeButtonContainer}>
             <TouchableOpacity 
-              style={styles.secondaryButtonWrapper}
               onPress={() => handleRemoveWater(1)}
               disabled={waterIntake === 0}
               activeOpacity={0.7}
+              style={{ width: '100%' }}
             >
               <BlurView 
                 intensity={waterIntake === 0 ? 40 : 80} 
                 tint={isDark ? 'dark' : 'light'} 
                 style={[
-                  styles.secondaryGlassButton,
-                  { borderColor: isDark ? 'rgba(255,69,58,0.3)' : 'rgba(255,59,48,0.3)' }
+                  styles.undoGlassButton,
+                  { borderColor: waterIntake === 0 ? 'rgba(100,100,100,0.2)' : 'rgba(255,59,48,0.3)' }
                 ]}
               >
                 <Ionicons 
                   name="remove-circle" 
-                  size={28} 
-                  color={waterIntake === 0 ? (isDark ? '#555' : '#C7C7CC') : '#FF3B30'} 
+                  size={18} 
+                  color={waterIntake === 0 ? (isDark ? '#555' : '#C7C7CC') : (isDark ? '#FF6961' : '#FF3B30')} 
                 />
                 <Text style={[
-                  styles.secondaryButtonText,
+                  styles.undoButtonText,
                   { color: waterIntake === 0 ? (isDark ? '#555' : '#C7C7CC') : (isDark ? '#FF6961' : '#FF3B30') }
-                ]}>Remove</Text>
+                ]}>Remove Last Glass</Text>
               </BlurView>
             </TouchableOpacity>
+          </View>
+          
+          {/* Secondary Action Buttons - Glass Grid */}
+          <View style={styles.secondaryButtons}>
             
             {/* Add Half Glass */}
             <TouchableOpacity 
@@ -653,6 +655,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginTop: 4,
     textAlign: 'center',
+  },
+  
+  // Remove Button Container
+  removeButtonContainer: {
+    marginTop: 16,
+    marginBottom: 0,
+    width: '100%',
   },
   
   // Undo Button - Glass Style

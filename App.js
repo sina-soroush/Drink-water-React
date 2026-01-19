@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ThemeProvider } from './contexts/ThemeContext';
+import IPhoneFrame from './components/IPhoneFrame';
 
 // Import screens
 import HomeScreen from './screens/HomeScreen';
@@ -79,7 +80,9 @@ function AppNavigation() {
 export default function App() {
   return (
     <ThemeProvider>
-      <AppNavigation />
+      <IPhoneFrame>
+        <AppNavigation />
+      </IPhoneFrame>
     </ThemeProvider>
   );
 }
