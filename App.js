@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 // Import screens
 import HomeScreen from './screens/HomeScreen';
@@ -11,37 +13,44 @@ import SettingsScreen from './screens/SettingsScreen';
 // Create Stack Navigator
 const Stack = createNativeStackNavigator();
 
-// Main App Component with Navigation
-export default function App() {
+// Navigation Component with Glassmorphism
+function AppNavigation() {
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-          // iOS-native navigation styling
-          headerStyle: {
-            backgroundColor: '#F2F2F7', // iOS background
+          // iOS 26 optimized navigation with glass effect
+          headerTransparent: Platform.OS === 'ios',
+          headerBlurEffect: 'systemUltraThinMaterial',
+          headerLargeTitle: true,
+          headerLargeStyle: {
+            backgroundColor: 'transparent',
           },
-          headerTintColor: '#007AFF', // iOS blue for back button
+          headerStyle: {
+            backgroundColor: 'transparent',
+          },
+          headerTintColor: '#007AFF',
           headerTitleStyle: {
             fontWeight: '600',
-            fontSize: 17, // iOS navigation title size
+            fontSize: 17,
           },
           headerLargeTitleStyle: {
             fontWeight: '700',
-            fontSize: 34, // iOS large title
+            fontSize: 34,
           },
-          headerLargeTitle: true, // Enable iOS large titles
-          headerTransparent: false,
-          headerBlurEffect: 'systemChromeMaterial', // iOS blur effect
+          headerShadowVisible: false,
+          contentStyle: {
+            backgroundColor: 'transparent',
+          },
         }}
       >
         <Stack.Screen 
           name="Home" 
           component={HomeScreen}
           options={{ 
-            title: 'Drink Water',
+            title: '💧 Hydration',
             headerLargeTitle: true,
           }}
         />
@@ -49,7 +58,7 @@ export default function App() {
           name="History" 
           component={HistoryScreen}
           options={{ 
-            title: 'History',
+            title: '📊 History',
             headerLargeTitle: true,
           }}
         />
@@ -57,11 +66,20 @@ export default function App() {
           name="Settings" 
           component={SettingsScreen}
           options={{ 
-            title: 'Settings',
+            title: '⚙️ Settings',
             headerLargeTitle: true,
           }}
         />
       </Stack.Navigator>
     </NavigationContainer>
+  );
+}
+
+// Main App Component wrapped with ThemeProvider
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppNavigation />
+    </ThemeProvider>
   );
 }

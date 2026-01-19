@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Drink Water",
-    "slug": "drink-water",
-    "version": "1.0.0",
+    "name": "Hydration - Water Tracker",
+    "slug": "drink-water-react",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -15,11 +15,17 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.drinkwater.app",
-      "buildNumber": "1.0.0",
+      "buildNumber": "2.0.0",
+      "deploymentTarget": "15.0",
       "infoPlist": {
-        "UIBackgroundModes": ["fetch"],
+        "UIBackgroundModes": [
+          "fetch"
+        ],
         "NSHealthShareUsageDescription": "This app needs access to your health data to track water intake.",
-        "NSHealthUpdateUsageDescription": "This app needs to update your health data with water intake."
+        "NSHealthUpdateUsageDescription": "This app needs to update your health data with water intake.",
+        "UIRequiredDeviceCapabilities": [
+          "arm64"
+        ]
       }
     },
     "android": {
@@ -31,6 +37,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d306c729-74d9-4548-90f7-e9a15ddda0f4"
+      }
+    },
+    "owner": "sina.soroush"
   }
 }
