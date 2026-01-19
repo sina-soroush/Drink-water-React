@@ -11,10 +11,9 @@ A beautiful and intuitive water intake tracking app built with React Native and 
 
 You can view the live version of this project here:
 
-👉 [Drink Water Tracker Demo](#) <!-- Add your deployment link here -->
+👉 (https://drink-water-react--2ixhkbgqig.expo.app/)
 
-<!-- Add your app screenshot here -->
-<!-- <img width="1200" height="800" alt="Drink-Water-Tracker" src="screenshot-url" /> -->
+<img width="1080" height="1440" alt="photo-collage" src="https://github.com/user-attachments/assets/a05cd919-4132-4276-9705-fbd022dae3c2" />
 
 ## ✨ Features
 
